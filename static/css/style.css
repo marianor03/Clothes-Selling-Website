@@ -42,9 +42,15 @@ body, html {
 }
 
 .hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
+
 
 .btn {
   padding: 0.8rem 1.6rem;
@@ -63,7 +69,7 @@ body, html {
 /* Bottom navigation */
 .bottom-nav {
   position: absolute;
-  bottom: 20px;
+  bottom: 50px;
   width: 100%;
   text-align: center;
   z-index: 2;
@@ -74,11 +80,27 @@ body, html {
   padding: 0;
   margin: 0;
   display: inline-flex;
-  gap: 2rem;
+  gap: 10rem; /* 🔧 Increase spacing between buttons (default was 2rem) */
 }
 
 .nav-links a {
   text-decoration: none;
   color: white;
   font-weight: 600;
+  font-size: 1.3rem; /* 🔧 Increase font size (default was 1rem or 1.2rem) */
 }
+
+.brand-name {
+  position: absolute;
+  top: 35px;
+  left: 45px;
+  z-index: 3;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  color: white;
+  letter-spacing: 1px;
+  user-select: none;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+
+
