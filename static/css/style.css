@@ -1,60 +1,47 @@
-body {
+/* Reset */
+body, html {
   margin: 0;
-  font-family: 'Helvetica Neue', sans-serif;
-  background-color: #fff;
-  color: #111;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #ccc;
-  background-color: #fff;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #000;
-  font-weight: 500;
-}
-
+/* Fullscreen Hero */
 .hero {
-  background: url('/images/hero.jpg') center/cover no-repeat;
-  height: 70vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
   position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.hero::after {
-  content: '';
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.hero-content {
-  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
-.hero h1 {
+.hero-content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.hero-content h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
@@ -66,36 +53,32 @@ body {
   text-decoration: none;
   font-weight: bold;
   border-radius: 5px;
+  transition: background 0.3s;
 }
 
-.products,
-.shop {
-  padding: 2rem;
-  text-align: center;
+.btn:hover {
+  background-color: #ddd;
 }
 
-.product-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-.product-card {
-  width: 200px;
-  text-align: center;
-}
-
-.product-card img {
+/* Bottom navigation */
+.bottom-nav {
+  position: absolute;
+  bottom: 20px;
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  text-align: center;
+  z-index: 2;
 }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-  border-top: 1px solid #ccc;
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
 }
