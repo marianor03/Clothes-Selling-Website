@@ -1,20 +1,22 @@
-# Base image to use
+# Use Node as the base image
 FROM node:latest
 
-# set a working directory
+# Set the working directory inside the container
 WORKDIR /src
 
-# Copy across project configuration information
-# Install application dependencies
-COPY package*.json /src/
+# Copy only the package files and install dependencies
+COPY package*.json ./
+RUN npm install -g supervisor && npm install
 
-# Ask npm to install the dependencies
-RUN npm install -g supervisor && npm install && npm install supervisor
+# Copy only necessary app files (not everything!)
+COPY index.js ./
+COPY app/ ./app/
+COPY views/ ./views/
+COPY static/ ./static/
 
-# Copy across all our files
-COPY . /src
-
-# Expose our application port (3000)
+# Expose the port the app runs on
 EXPOSE 3000
 
+# Default command
+CMD ["supervisor", "index.js"]
 
