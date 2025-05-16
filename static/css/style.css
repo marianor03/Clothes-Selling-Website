@@ -103,4 +103,50 @@ body, html {
   text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 }
 
+/* === Shop Page Product Grid === */
+.shop {
+  padding: 2rem;
+  text-align: center;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.product-card {
+  width: 220px;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.add-cart {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.add-cart:hover {
+  background-color: #eee;
+}
+
+/* Optional: spacing fix */
+.product-card p {
+  margin: 0.3rem 0;
+}
+
 
