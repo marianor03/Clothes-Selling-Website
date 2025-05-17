@@ -1,25 +1,27 @@
-/* Reset */
+/* Box sizing reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Global base styles */
 body, html {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  background-color: black;  /* ✅ so no contrast if video doesn’t fully fill */
 }
 
-/* Fullscreen Hero */
 .hero {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  background-color: black;
 }
 
 .hero-video {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100dvh;
   object-fit: cover;
   z-index: 0;
 }
@@ -47,11 +49,12 @@ body, html {
   font-weight: normal;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: white;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin: 0;          /* ✅ removes top margin */
+  padding: 0;         /* ✅ ensures no internal spacing */
 }
 
-
+/* Buttons */
 .btn {
   padding: 0.8rem 1.6rem;
   background-color: #fff;
@@ -66,87 +69,109 @@ body, html {
   background-color: #ddd;
 }
 
-/* Bottom navigation */
-.bottom-nav {
-  position: absolute;
-  bottom: 50px;
+/* === Overlay Container for Fixed UI === */
+.overlay-ui {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  text-align: center;
-  z-index: 2;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
 }
 
-.nav-links {
+/* Brand Name ("kavello©") */
+.overlay-ui .brand-name {
+  position: absolute;
+  top: 35px;
+  left: 45px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  user-select: none;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+  color: black;
+  margin: 0;
+  padding: 0;
+  pointer-events: auto;
+}
+
+/* Override brand color on Home */
+.overlay-ui .brand-name.home {
+  color: white;
+}
+
+/* === Bottom Nav === */
+.overlay-ui .bottom-nav {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.overlay-ui .nav-links {
   list-style: none;
   padding: 0;
   margin: 0;
   display: inline-flex;
-  gap: 10rem; /* 🔧 Increase spacing between buttons (default was 2rem) */
+  gap: 10rem;
 }
 
-.nav-links a {
+.overlay-ui .nav-links a {
   text-decoration: none;
   color: white;
   font-weight: 600;
-  font-size: 1.3rem; /* 🔧 Increase font size (default was 1rem or 1.2rem) */
+  font-size: 1.3rem;
 }
 
-.brand-name {
-  position: absolute;
-  top: 35px;
-  left: 45px;
-  z-index: 3;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.5rem;
-  color: white;
-  letter-spacing: 1px;
-  user-select: none;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
-}
-
-/* === Shop Page Product Grid === */
+/* === Shop Page === */
 .shop {
-  padding: 2rem;
+  padding: 6rem 2rem 10rem; /* top, right/left, bottom */
   text-align: center;
+  background-color: white;
+}
+
+.shop h1 {
+  margin-top: 0;
+  padding-top: 1rem;
 }
 
 .product-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
   justify-content: center;
-  margin-top: 1rem;
+  gap: 5rem;
+  margin-top: 3rem;
 }
 
 .product-card {
-  width: 220px;
+  width: 280px;
   text-align: center;
 }
 
 .product-card img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0;
+  transition: transform 0.3s ease;
 }
 
-.add-cart {
-  margin-top: 0.5rem;
-  padding: 0.5rem 1.2rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #ffffff;
-  color: #000;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease;
+.product-card img:hover {
+  transform: scale(1.05);
 }
 
-.add-cart:hover {
-  background-color: #eee;
+.product-card h3 {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* Optional: spacing fix */
 .product-card p {
   margin: 0.3rem 0;
+  font-size: 1rem;
+  color: #888;
+  font-weight: 600;
 }
-
-

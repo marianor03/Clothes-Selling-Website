@@ -7,6 +7,18 @@ html(lang="en")
     link(rel="stylesheet", href="/css/style.css")
     link(rel="preconnect", href="https://fonts.googleapis.com")
     link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin=true)
-    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600&display=swap")
   body
+    .overlay-ui 
+      // 🔒 Brand text locked top-left
+      .brand-name(class=page) kavello©
+
+      // 🔒 Bottom nav always visible
+      .bottom-nav
+        ul.nav-links
+          li: a(href="/") Home
+          li: a(href="/shop") Shop
+          li: a(href="/about") About
+          li: a(href="/contact") Contact
+
     block content

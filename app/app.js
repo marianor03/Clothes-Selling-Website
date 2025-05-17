@@ -10,19 +10,20 @@ app.set("views", path.join(__dirname, "../views"));
 app.use(express.static(path.join(__dirname, "../static")));
 
 app.get("/", (req, res) => {
-  res.render("home", { title: "Home" });
+  res.render("home", { title: "Home", page: "home" });
 });
 
 app.get("/shop", (req, res) => {
-  res.render("shop", { title: "Shop" });
+  res.render("shop", { title: "Shop", page: "shop" });
 });
 
 app.get("/about", (req, res) => {
-  res.render("about", { title: "About" });
+  res.render("about", { title: "About", page: "about" });
 });
 
 app.get("/contact", (req, res) => {
-  res.render("contact", { title: "Contact" });
+  res.render("contact", { title: "Contact", page: "contact" });
 });
+
 
 module.exports = app;
